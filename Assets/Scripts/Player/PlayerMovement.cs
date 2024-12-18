@@ -8,16 +8,16 @@ public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
     [SerializeField] float movementSpeed;
     [SerializeField] float mass = 1f;
     [SerializeField] float acceleration = 20f;
+    [SerializeField] PlayerJump playerJump;
 
     public Transform cameraTransform;
 
     public float movementSpeedMultiplier;
 
-    CharacterController characterController;
+    public CharacterController characterController;
 
     public Vector3 velocity;
     Vector2 look;
-    public bool isGrounded;
 
     public float Height
     {
@@ -27,8 +27,6 @@ public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
     protected override void Awake()
     {
         base.Awake();
-
-        characterController = GetComponent<CharacterController>();
     }
 
     private void Start()
@@ -38,9 +36,13 @@ public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
 
     private void Update()
     {
-        UpdateMovement();
-        GetMovementInput();
-        UpdateLook();
+        if(!InventorySystem.Instance.isOpen)
+        {
+            UpdateMovement();
+            GetMovementInput();
+            UpdateLook();
+        }
+
     }
 
     private void UpdateLook()
@@ -92,16 +94,9 @@ public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
         {
             PlayerJump.Instance.OnJump();
         }
-
-        velocity.y = Mathf.Lerp(velocity.y, 0, factor);
         */
+        
 
         characterController.Move(velocity * Time.deltaTime);
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        isGrounded = true;
     }
 }

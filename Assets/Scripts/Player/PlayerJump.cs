@@ -46,14 +46,14 @@ public class PlayerJump : SingletonMonoBehaviour<PlayerJump>
     }
     private void OnBeforeMove()
     {
-        if (player.isGrounded) jumps = 0;
+        if (player.characterController.isGrounded) jumps = 0;
 
 
         bool wasTryingToJump = Time.time - lastJumpPressTime < jumpPressBufferTime;
         bool wasGrounded = Time.time - lastGroundTime < jumpGroundGraceTime;
 
-        bool isOrWasTryingToJump = isTryingToJump || (wasTryingToJump && player.isGrounded);
-        bool isOrWasGrounded = player.isGrounded || wasGrounded;
+        bool isOrWasTryingToJump = isTryingToJump || (wasTryingToJump && player.characterController.isGrounded);
+        bool isOrWasGrounded = player.characterController.isGrounded || wasGrounded;
 
         bool jumpAllowed = jumps <= maxJumps;
 
@@ -64,7 +64,6 @@ public class PlayerJump : SingletonMonoBehaviour<PlayerJump>
             EventsHandler.CallOnGroundStateChangedEvent(false);
             player.velocity.y += jumpSpeed;
             jumps++;
-            player.isGrounded = false;
         }
 
         isTryingToJump = false;
