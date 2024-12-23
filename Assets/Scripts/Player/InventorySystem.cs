@@ -50,7 +50,7 @@ public class InventorySystem : SingletonMonoBehaviour<InventorySystem>
             isOpen = !isOpen;
             Inventory.SetActive(isOpen);
 
-            if(isOpen)
+            if(isOpen || CraftingSystem.Instance.isOpen)
             {
                 Cursor.lockState = CursorLockMode.None;
             }

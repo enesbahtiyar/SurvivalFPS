@@ -36,7 +36,7 @@ public class PlayerMovement : SingletonMonoBehaviour<PlayerMovement>
 
     private void Update()
     {
-        if(!InventorySystem.Instance.isOpen)
+        if(!InventorySystem.Instance.isOpen && !CraftingSystem.Instance.isOpen)
         {
             UpdateMovement();
             GetMovementInput();
