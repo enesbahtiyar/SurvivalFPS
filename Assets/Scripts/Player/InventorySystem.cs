@@ -70,11 +70,37 @@ public class InventorySystem : SingletonMonoBehaviour<InventorySystem>
         itemList.Add(itemName);   
     }
 
-    public void RemoveFromInventory(GameObject gameObject)
+    public void RemoveFromInventoryToWorld(GameObject gameObject)
     {
         Destroy(gameObject);
         //TODO: yere item at 
     }
+
+    public void RemoveItemFromInventory(string itemName, int count)
+    {
+        int counter = count;
+
+        Debug.Log(itemName);
+        Debug.Log(counter);
+        for(int i = slotsParent.childCount -1; i >= 0; i--)
+        {
+            if(slotsParent.GetChild(i).childCount > 0)
+            {
+                if (slotsParent.GetChild(i).GetChild(0).name == itemName + "(Clone)" && counter != 0)
+                {
+                    Destroy(slotsParent.GetChild(i).GetChild(0).gameObject);
+                    counter--;
+                    itemList.Remove(itemName);
+                    Debug.Log("item silindi");
+                    Debug.Log(counter);
+                }
+            }
+        }
+    }
+
+
+
+
 
     private GameObject FindNextEmptySlot()
     {

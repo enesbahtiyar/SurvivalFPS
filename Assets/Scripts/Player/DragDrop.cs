@@ -56,7 +56,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         }
         else
         {
-            InventorySystem.Instance.RemoveFromInventory(this.gameObject);
+            InventorySystem.Instance.RemoveFromInventoryToWorld(this.gameObject);
         }
 
         canvasGroup.alpha = 1f;

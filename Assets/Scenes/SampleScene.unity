@@ -472,7 +472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &223686046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -804,6 +804,18 @@ PrefabInstance:
     - target: {fileID: 6726760746538661390, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: whatToCraft
+      value: PickAxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: requiredItemName1
+      value: 'Wood '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: requiredItemName2
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
       propertyPath: requiredItemQuantity1
@@ -3020,6 +3032,18 @@ PrefabInstance:
     - target: {fileID: 6726760746538661390, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: whatToCraft
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: requiredItemName1
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
+      propertyPath: requiredItemName2
+      value: Stone
       objectReference: {fileID: 0}
     - target: {fileID: 7147365028912659692, guid: f03cc0a893add6f45bb86811e72db6c7, type: 3}
       propertyPath: requiredItemQuantity1
