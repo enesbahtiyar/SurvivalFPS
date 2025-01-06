@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, IDropHandler
 {
     public GameObject Item
     {
@@ -15,5 +15,10 @@ public class ItemSlot : MonoBehaviour
             }
             return null;
         }
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 }
