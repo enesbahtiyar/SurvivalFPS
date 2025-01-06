@@ -90,10 +90,23 @@ public class InventorySystem : SingletonMonoBehaviour<InventorySystem>
                 {
                     Destroy(slotsParent.GetChild(i).GetChild(0).gameObject);
                     counter--;
-                    itemList.Remove(itemName);
-                    Debug.Log("item silindi");
-                    Debug.Log(counter);
+                    ReCalculateList();
                 }
+            }
+        }
+    }
+
+    public void ReCalculateList()
+    {
+        itemList.Clear();
+
+        for(int i = 0; i < slotsParent.childCount; i++)
+        {
+            if(slotsParent.GetChild(i).childCount > 0)
+            {
+                string cleanName = slotsParent.GetChild(i).GetChild(0).name.Replace("(Clone)", "");
+
+                itemList.Add(cleanName);
             }
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8943852643729862727}
   - component: {fileID: 3733805938895001706}
   - component: {fileID: -1273386131565056594}
+  - component: {fileID: -5362848647862715132}
   m_Layer: 5
   m_Name: Apple
   m_TagString: Untagged
@@ -101,3 +102,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-5362848647862715132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892211884791148107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73fc8798b470ad4891520d25b387cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrashable: 1
+  thisName: Apple
+  thisDescription: Eat it to gain life or get food
+  thisFunction: Food
+  isConsumable: 1
+  healthEffect: 10
+  foodEffect: 20
+  hydrationEffect: 1
+  isEquiapple: 0
+  isNowEquipped: 0
