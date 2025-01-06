@@ -13,7 +13,6 @@ public class ItemSlot : MonoBehaviour
             {
                 return transform.GetChild(0).gameObject;
             }
-
             return null;
         }
     }

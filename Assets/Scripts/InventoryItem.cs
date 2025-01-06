@@ -16,25 +16,49 @@ public class InventoryItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public bool isEquiapple;
     private GameObject itemPendingEquipping;
-    public bool isNowEquipped;
+    public bool isOnQuickSlot;
+    public bool isSelected;
+
+
+    private void Update()
+    {
+        if(isSelected)
+        {
+            gameObject.GetComponent<DragDrop>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<DragDrop>().enabled = true;
+        }
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        Debug.Log(thisName + "\n"
+            + thisDescription + "\n"
+            + thisFunction + "\n");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("selam");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            Debug.Log(EquipSystem.Instance.CheckIfFull());
+            if(isEquiapple && !isOnQuickSlot && EquipSystem.Instance.CheckIfFull() == false)
+            {
+                EquipSystem.Instance.AddToQuickSlots(this.gameObject);
+                isOnQuickSlot = true;
+            }
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("mouse geri çekildi");
     }
 }

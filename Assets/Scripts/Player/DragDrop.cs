@@ -59,6 +59,16 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             InventorySystem.Instance.RemoveFromInventoryToWorld(this.gameObject);
         }
 
+
+        if(!transform.CompareTag("QuickSlot"))
+        {
+            itemBeingDragged.GetComponent<InventoryItem>().isOnQuickSlot = false;
+        }
+        if (transform.CompareTag("QuickSlot"))
+        {
+            itemBeingDragged.GetComponent<InventoryItem>().isOnQuickSlot = true;
+        }
+
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
