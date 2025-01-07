@@ -122,6 +122,6 @@ MonoBehaviour:
   healthEffect: 10
   foodEffect: 20
   hydrationEffect: 1
-  isEquiapple: 1
+  isEquiapple: 0
   isOnQuickSlot: 0
   isSelected: 0

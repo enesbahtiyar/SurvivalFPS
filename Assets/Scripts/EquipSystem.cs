@@ -15,6 +15,9 @@ public class EquipSystem : SingletonMonoBehaviour<EquipSystem>
     public int selectedNumber = -1;
     public GameObject selectedItem = null;
 
+    public GameObject toolHandler;
+    public GameObject selecteItemModel;
+
     protected override void Awake()
     {
         base.Awake();
@@ -81,6 +84,8 @@ public class EquipSystem : SingletonMonoBehaviour<EquipSystem>
                 selectedItem = GetSelectedItem(number);
                 selectedItem.GetComponent<InventoryItem>().isSelected = true;
 
+                SetEquippedModel(selectedItem);
+
 
                 //changing the color
                 foreach (Transform child in numberHolder.transform)
@@ -98,6 +103,12 @@ public class EquipSystem : SingletonMonoBehaviour<EquipSystem>
                     selectedItem.GetComponent<InventoryItem>().isSelected = false;
                 }
 
+                if (selecteItemModel != null)
+                {
+                    DestroyImmediate(selecteItemModel.gameObject);
+                    selecteItemModel = null;
+                }
+
                 //changing the color
                 foreach (Transform child in numberHolder.transform)
                 {
@@ -106,9 +117,21 @@ public class EquipSystem : SingletonMonoBehaviour<EquipSystem>
                 selectedItem = null;
                 selectedNumber = -1;
             }
+        }
+    }
 
+    private void SetEquippedModel(GameObject selectedItem)
+    {
+
+        if (selecteItemModel != null)
+        {
+            DestroyImmediate(selecteItemModel.gameObject);
+            selecteItemModel = null;
         }
 
+        string selectedItemName = selectedItem.name.Replace("(Clone)", "");
+        selecteItemModel = Instantiate(Resources.Load<GameObject>(selectedItemName + "_Model"), new Vector3(-0.06f, 0.2f, 0.58f), Quaternion.Euler(0, -20f, -4f));
+        selecteItemModel.transform.SetParent(toolHandler.transform, false);
     }
 
     private GameObject GetSelectedItem(int number)

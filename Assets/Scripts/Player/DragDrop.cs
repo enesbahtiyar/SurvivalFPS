@@ -64,7 +64,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         {
             itemBeingDragged.GetComponent<InventoryItem>().isOnQuickSlot = false;
         }
-        if (transform.CompareTag("QuickSlot"))
+        else if (transform.CompareTag("QuickSlot"))
         {
             itemBeingDragged.GetComponent<InventoryItem>().isOnQuickSlot = true;
         }
