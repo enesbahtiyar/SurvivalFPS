@@ -137,16 +137,4 @@ public class CraftingSystem : SingletonMonoBehaviour<CraftingSystem>
             }
         }
     }
-
-    private bool CheckIfRequiredItemsMet(int requiredItemQuantity1, int requiredItemQuantity2, int requiredItemQuantity3, int requiredItemQuantity4)
-    {
-        int stoneCount, woodCount;
-        CheckInventory(out stoneCount, out woodCount);
-
-        if(woodCount >= requiredItemQuantity1 && stoneCount >= requiredItemQuantity2)
-        {
-            return true;
-        }
-        return false;
-    }
 }
