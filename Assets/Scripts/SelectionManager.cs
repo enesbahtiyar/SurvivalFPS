@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using JetBrains.Annotations;
 
 public class SelectionManager : SingletonMonoBehaviour<SelectionManager>
 {
@@ -10,6 +11,9 @@ public class SelectionManager : SingletonMonoBehaviour<SelectionManager>
     InteractableObject interactable;
 
     public bool onTarget;
+
+
+    public GameObject selectedTree;
 
     protected override void Awake()
     {
@@ -39,8 +43,26 @@ public class SelectionManager : SingletonMonoBehaviour<SelectionManager>
                 objectNameDisplayerText.text = string.Empty;
                 onTarget = false;
                 interactable = null;
-                
             }
+
+
+            hit.transform.TryGetComponent(out ChoppableTree choppableTree);
+
+            if (choppableTree && choppableTree.playerInRange)
+            {
+                choppableTree.canBeChopped = true;
+                selectedTree = choppableTree.gameObject;
+                    
+            }
+            else
+            {
+                if(selectedTree != null)
+                {
+                    selectedTree.gameObject.GetComponent<ChoppableTree>().canBeChopped = false;
+                    selectedTree = null;
+                }
+            }
+            
         }
         else
         {
